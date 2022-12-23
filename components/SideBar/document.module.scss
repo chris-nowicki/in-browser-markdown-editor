@@ -1,0 +1,33 @@
+.document {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 26px;
+
+    & button {
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+        border: none;
+        font-family: var(--roboto-font);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 18px;
+        color: #ffffff;
+        cursor: pointer;
+        margin-left: 16.29px;
+
+        & span {
+            font-weight: 300;
+            font-size: 13px;
+            line-height: 15px;
+            color: #7c8187;
+            margin-bottom: 3px;
+        }
+    }
+
+    & button:hover {
+        color: #e46643;
+    }
+}

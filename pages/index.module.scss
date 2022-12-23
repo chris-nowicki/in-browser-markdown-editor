@@ -1,0 +1,14 @@
+@import '../styles/vars';
+
+.appWrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+.appContainer {
+    display: flex;
+    flex-direction: column;
+    transition: all ease 0.3sec;
+    width: 100%;
+}

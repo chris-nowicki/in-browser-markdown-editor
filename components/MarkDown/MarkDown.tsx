@@ -32,7 +32,7 @@ function MarkDown() {
                     <span>MARKDOWN</span>
                 </div>
                 <textarea
-                    defaultValue={content}
+                    value={content}
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
             </div>

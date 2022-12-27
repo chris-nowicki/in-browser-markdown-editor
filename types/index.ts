@@ -12,5 +12,6 @@ export interface AppContextTypes {
     setShowMenu: (menu: any) => void
     theme: string
     setTheme: (theme: any) => void
-    handleTheme: () => void
+    isChecked: boolean
+    setIsChecked: (isChecked: any) =>void
 }

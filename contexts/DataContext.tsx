@@ -3,7 +3,7 @@ import { createContext, useState, useMemo, use} from 'react'
 // Types
 import { DataContextTypes } from '../types'
 
-// Default Data
+// Load Default Data
 import DATA from '../json/data.json'
 const defaultData = DATA.slice()
 

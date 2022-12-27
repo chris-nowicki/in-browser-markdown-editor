@@ -122,3 +122,26 @@
 .saveDocument:hover {
     background-color: #f39765;
 }
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 40px;
+    border: none;
+    background-color: #e46643;
+    border-radius: 4px;
+    font-family: var(--roboto-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: white;
+    margin-right: 24px;
+    cursor: pointer;
+}
+
+.login:hover {
+    background-color: #f39765;
+}

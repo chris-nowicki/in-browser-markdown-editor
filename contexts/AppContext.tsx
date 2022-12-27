@@ -9,18 +9,16 @@ export const AppContext = createContext<AppContextTypes>({
     setShowMenu: () => null,
     theme: '',
     setTheme: () => null,
-    handleTheme: () => null,
+    isChecked: false,
+    setIsChecked: () => null,
 })
 
 export function AppProvider({ children }: { children: JSX.Element }) {
     const [showMenu, setShowMenu] = useState(false)
     const [theme, setTheme] = useState('')
+    const [isChecked, setIsChecked] = useState(true)
 
-    const handleTheme = () => {
-        let toggleTheme = ''
-        theme == '' ? (toggleTheme = 'dark') : (toggleTheme = '')
-        setTheme(toggleTheme)
-    }
+    useMemo(() => (isChecked ? setTheme('') : setTheme('dark')), [isChecked])
 
     const value: AppContextTypes = useMemo(
         () => ({
@@ -28,7 +26,8 @@ export function AppProvider({ children }: { children: JSX.Element }) {
             setShowMenu,
             theme,
             setTheme,
-            handleTheme,
+            isChecked,
+            setIsChecked,
         }),
         [showMenu, theme]
     )

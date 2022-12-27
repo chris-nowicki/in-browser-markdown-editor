@@ -1,10 +1,13 @@
-import { useState } from 'react'
+import { useContext } from 'react'
+
+// Context
+import { AppContext } from '../../contexts/AppContext'
 
 import * as Switch from '@radix-ui/react-switch'
 import styles from './toggleSwitch.module.scss'
 
 function ToggleSwitch() {
-    const [isChecked, setIsChecked] = useState(true)
+    const {isChecked, setIsChecked} = useContext(AppContext)
     return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
             <svg width='17' height='16' xmlns='http://www.w3.org/2000/svg'>

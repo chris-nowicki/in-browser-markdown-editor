@@ -7,6 +7,9 @@ import { DataContext } from '../../contexts/DataContext'
 // Styles
 import styles from './document.module.scss'
 
+// Utils
+import { convertDate } from '../../utils/dateHelper'
+
 function Document({ contentData, index }: { contentData: any; index: number }) {
     const { currentIndex, setCurrentIndex, setContent, data } =
         useContext(DataContext)
@@ -21,10 +24,10 @@ function Document({ contentData, index }: { contentData: any; index: number }) {
             <button
                 onClick={() => {
                     setCurrentIndex(index)
-                    setContent(data[index].content)
+                    setContent(data.files[index].content)
                 }}
             >
-                <span>{contentData.createdAt}</span>
+                <span>{convertDate(contentData.createdAt)}</span>
                 {contentData.name}
             </button>
         </div>

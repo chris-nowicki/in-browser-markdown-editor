@@ -2,8 +2,6 @@ import { DataProvider } from '../contexts/DataContext'
 import { AppProvider } from '../contexts/AppContext'
 import { UserProvider } from '@auth0/nextjs-auth0/client'
 
-console.log(process.env.DOMAIN)
-
 // Styles
 import '../styles/globals.css'
 

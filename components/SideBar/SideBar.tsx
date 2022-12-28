@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { useRouter } from 'next/navigation'
+import axios from 'axios'
 
 // components
 import Document from './Document'
@@ -13,9 +14,24 @@ import { useUser } from '@auth0/nextjs-auth0/client'
 import styles from './sidebar.module.scss'
 
 function SideBar() {
-    const { data } = useContext(DataContext)
+    const { data, setData, setCurrentIndex, setContent } =
+        useContext(DataContext)
     const { user, isLoading } = useUser()
     const router = useRouter()
+
+    const handleNewDocument = () => {
+        axios
+            .put('http://localhost:3000/api/users/documents/new', {
+                id: user?.sub,
+            })
+            .then((res) => {
+                console.log(res.data.data.files)
+                setData(res.data.data)
+                setCurrentIndex(0)
+                setContent(res.data.data.files[0].content)
+            })
+            .catch((err) => console.log(err))
+    }
 
     return (
         <div className={styles.container}>
@@ -30,15 +46,20 @@ function SideBar() {
                                 alt={`${user.name}`}
                                 width='150'
                             />
-                            <h2>{`${user.given_name} ${user.family_name}`}</h2>
+                            <h2>{user.name}</h2>
                             <p>{user.email}</p>
                         </div>
                     )
                 )}
                 <span className={styles.title}>MY DOCUMENTS</span>
-                <button className={styles.newDocument}>+ New Document</button>
+                <button
+                    className={styles.newDocument}
+                    onClick={() => handleNewDocument()}
+                >
+                    + New Document
+                </button>
                 <div className={styles.documentList}>
-                    {data.map((data: string[], index: number) => (
+                    {data.files.map((data: string[], index: number) => (
                         <Document
                             key={index}
                             contentData={data}

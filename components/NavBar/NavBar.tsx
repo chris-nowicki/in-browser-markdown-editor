@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useUser } from '@auth0/nextjs-auth0/client'
+import axios from 'axios'
 
 // Context
 import { AppContext } from '../../contexts/AppContext'
@@ -10,23 +11,53 @@ import { DataContext } from '../../contexts/DataContext'
 // Styles
 import styles from './navbar.module.scss'
 
-const myLoader = ({
-    src,
-    width,
-    quality,
-}: {
-    src: string
-    width: number
-    quality: number
-}) => {
-    return `https://example.com/${src}?w=${width}&q=${quality || 75}`
-}
-
 function NavBar() {
     const { showMenu, setShowMenu } = useContext(AppContext)
-    const { data, currentIndex } = useContext(DataContext)
+    const {
+        data,
+        setData,
+        currentIndex,
+        setCurrentIndex,
+        setContent,
+        content,
+    } = useContext(DataContext)
     const { user } = useUser()
     const router = useRouter()
+
+    const handleNameChange = (e: any) => {
+        let updatedData = { ...data }
+        let newFileName = updatedData.files
+        newFileName = newFileName.find(
+            (fileName: any) => fileName._id === data.files[currentIndex]._id
+        )
+        newFileName.name = e.target.value
+        setData(updatedData)
+    }
+
+    const handleSave = () => {
+        axios
+            .put('http://localhost:3000/api/users/documents/save', {
+                id: data.files[currentIndex]._id,
+                name: data.files[currentIndex].name,
+                content: content,
+            })
+            .then((res) => console.log(res.data.data))
+            .catch((err) => console.log(err))
+    }
+
+    const handleDelete = () => {
+        axios
+            .put('http://localhost:3000/api/users/documents/delete', {
+                id: user?.sub,
+                mdxID: data.files[currentIndex]._id,
+            })
+            .then((res) => {
+                setData(res.data.data)
+                setCurrentIndex(0)
+                setContent(res.data.data.files[0].content)
+            })
+            .catch((err) => console.log(err))
+    }
 
     return (
         <div className={styles.container}>
@@ -70,7 +101,13 @@ function NavBar() {
                     />
                     <div className={styles.name}>
                         <label>Document Name</label>
-                        <input type='text' value={data[currentIndex].name} />
+                        <input
+                            type='text'
+                            value={data.files[currentIndex].name}
+                            onChange={(e) => {
+                                handleNameChange(e)
+                            }}
+                        />
                     </div>
                 </div>
             </div>
@@ -79,7 +116,10 @@ function NavBar() {
             <div className={styles.actions}>
                 {user && (
                     <>
-                        <button className={styles.deleteDocument}>
+                        <button
+                            className={styles.deleteDocument}
+                            onClick={() => handleDelete()}
+                        >
                             <svg
                                 width='18'
                                 height='20'
@@ -92,7 +132,10 @@ function NavBar() {
                                 />
                             </svg>
                         </button>
-                        <button className={styles.saveDocument}>
+                        <button
+                            className={styles.saveDocument}
+                            onClick={() => handleSave()}
+                        >
                             <Image
                                 src='/icon-save.svg'
                                 width={17}

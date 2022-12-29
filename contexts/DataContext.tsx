@@ -17,7 +17,7 @@ export const DataContext = createContext<DataContextTypes>({
     setContent: () => null,
     currentIndex: 1,
     setCurrentIndex: () => null,
-    deleteDocument: true,
+    deleteDocument: false,
     setDeleteDocument: () => null,
     handleDeleteDocument: () => null,
 })
@@ -32,7 +32,7 @@ export function DataProvider({
     const [data, setData] = useState<any>(defaultData)
     const [content, setContent] = useState(data.files[currentIndex].content)
     const { user } = useUser()
-    const [deleteDocument, setDeleteDocument] = useState(true)
+    const [deleteDocument, setDeleteDocument] = useState(false)
 
     useMemo(() => {
         user &&

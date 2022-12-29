@@ -23,10 +23,9 @@ export const DataContext = createContext<DataContextTypes>({
 })
 
 export function DataProvider({
-    children,
+    children
 }: {
     children: JSX.Element
-    userData: any
 }) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [data, setData] = useState<any>(defaultData)

@@ -5,6 +5,9 @@ export interface DataContextTypes {
     setContent: (content: any) => void
     currentIndex: number
     setCurrentIndex: (currentIndex: number) => void
+    deleteDocument: boolean
+    setDeleteDocument: (deleteDocument: any) => void
+    handleDeleteDocument: () => void
 }
 
 export interface AppContextTypes {

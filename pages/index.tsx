@@ -5,9 +5,11 @@ import Head from 'next/head'
 import NavBar from '../components/NavBar/NavBar'
 import SideBar from '../components/SideBar/SideBar'
 import MarkDown from '../components/MarkDown/MarkDown'
+import DeleteModal from '../components/DeleteModal/DeleteModal'
 
 // Context
 import { AppContext } from '../contexts/AppContext'
+import { DataContext } from '../contexts/DataContext'
 
 // Fonts
 import { Roboto } from '@next/font/google'
@@ -23,6 +25,8 @@ import styles from './index.module.scss'
 
 export default function Home() {
     const { showMenu } = useContext(AppContext)
+    const {deleteDocument} = useContext(DataContext)
+    
     return (
         <>
             <Head>
@@ -43,6 +47,7 @@ export default function Home() {
                     <NavBar />
                     <MarkDown />
                 </div>
+            {deleteDocument && <DeleteModal />}
             </div>
         </>
     )

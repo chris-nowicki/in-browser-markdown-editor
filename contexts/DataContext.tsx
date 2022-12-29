@@ -17,6 +17,9 @@ export const DataContext = createContext<DataContextTypes>({
     setContent: () => null,
     currentIndex: 1,
     setCurrentIndex: () => null,
+    deleteDocument: true,
+    setDeleteDocument: () => null,
+    handleDeleteDocument: () => null,
 })
 
 export function DataProvider({
@@ -29,6 +32,7 @@ export function DataProvider({
     const [data, setData] = useState<any>(defaultData)
     const [content, setContent] = useState(data.files[currentIndex].content)
     const { user } = useUser()
+    const [deleteDocument, setDeleteDocument] = useState(true)
 
     useMemo(() => {
         user &&
@@ -46,6 +50,21 @@ export function DataProvider({
                 .catch((err) => console.log(err))
     }, [user])
 
+    const handleDeleteDocument = () => {
+        axios
+            .put('http://localhost:3000/api/users/documents/delete', {
+                id: user?.sub,
+                mdxID: data.files[currentIndex]._id,
+            })
+            .then((res) => {
+                setData(res.data.data)
+                setCurrentIndex(0)
+                setContent(res.data.data.files[0].content)
+                setDeleteDocument(false)
+            })
+            .catch((err) => console.log(err))
+    }
+
     const value: DataContextTypes = useMemo(
         () => ({
             data,
@@ -54,8 +73,11 @@ export function DataProvider({
             setContent,
             currentIndex,
             setCurrentIndex,
+            deleteDocument,
+            setDeleteDocument,
+            handleDeleteDocument,
         }),
-        [data, content, currentIndex]
+        [data, content, currentIndex, deleteDocument]
     )
 
     return <DataContext.Provider value={value}>{children}</DataContext.Provider>

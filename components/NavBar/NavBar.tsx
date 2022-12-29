@@ -13,14 +13,8 @@ import styles from './navbar.module.scss'
 
 function NavBar() {
     const { showMenu, setShowMenu } = useContext(AppContext)
-    const {
-        data,
-        setData,
-        currentIndex,
-        setCurrentIndex,
-        setContent,
-        content,
-    } = useContext(DataContext)
+    const { data, setData, currentIndex, content, setDeleteDocument } =
+        useContext(DataContext)
     const { user } = useUser()
     const router = useRouter()
 
@@ -42,20 +36,6 @@ function NavBar() {
                 content: content,
             })
             .then((res) => console.log(res.data.data))
-            .catch((err) => console.log(err))
-    }
-
-    const handleDelete = () => {
-        axios
-            .put('http://localhost:3000/api/users/documents/delete', {
-                id: user?.sub,
-                mdxID: data.files[currentIndex]._id,
-            })
-            .then((res) => {
-                setData(res.data.data)
-                setCurrentIndex(0)
-                setContent(res.data.data.files[0].content)
-            })
             .catch((err) => console.log(err))
     }
 
@@ -118,7 +98,7 @@ function NavBar() {
                     <>
                         <button
                             className={styles.deleteDocument}
-                            onClick={() => handleDelete()}
+                            onClick={() => setDeleteDocument(true)}
                         >
                             <svg
                                 width='18'

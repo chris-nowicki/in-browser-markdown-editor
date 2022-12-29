@@ -76,7 +76,7 @@
     line-height: 24px;
     font-family: var(--slab);
     color: $light-text-primary;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     & h1 {
         font-style: normal;

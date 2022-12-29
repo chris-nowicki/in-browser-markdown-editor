@@ -1,0 +1,116 @@
+.container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    mix-blend-mode: normal;
+    z-index: 20;
+}
+
+.containerLight {
+    background-color: hsla(225, 9, 9, 0.5);
+}
+
+.containerDark {
+    background-color: hsla(213, 4, 51, 0.5);
+}
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    width: 353px;
+    height: 275px;
+    border-radius: 4px;
+    background-color: white;
+    padding: 24px;
+    font-family: var(--slab-font);
+    z-index: 30;
+
+    & h4 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 26px;
+        color: #35393f;
+        margin-bottom: 16px;
+    }
+
+    & p {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 24px;
+        color: #7c8187;
+        margin-bottom: 16px;
+
+        & span {
+            color: #e46643;
+        }
+    }
+}
+
+.confirm {
+    font-family: var(--roboto-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #ffffff;
+    background: #e46643;
+    border-radius: 4px;
+    height: 40px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.confirm:hover {
+    background-color: #f39765;
+}
+
+.cancel {
+    font-family: var(--roboto-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #e46643;
+    border-radius: 4px;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid #e46643;
+}
+
+.cancel:hover {
+    background-color: #e46643;
+    color: white;
+}
+
+.modal.dark {
+    background-color: #1d1f22;
+
+    & h4 {
+        color: white;
+    }
+
+    & p {
+        color: #c1c4cb;
+
+        & span {
+            color: white;
+            font-weight: 700;
+        }
+    }
+}
+
+.dark .cancel {
+    color: white;
+}

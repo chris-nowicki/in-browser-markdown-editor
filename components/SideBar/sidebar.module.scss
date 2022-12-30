@@ -6,6 +6,7 @@
     justify-content: space-between;
     min-width: 250px;
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     background-color: $bg-sidebar;
     transition: all ease 0.5sec;
     padding: 24px;

@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
+import Image from 'next/image'
 
 // components
 import Document from './Document'
@@ -36,6 +37,15 @@ function SideBar() {
     return (
         <div className={styles.container}>
             <div className={styles.myDocuments}>
+                {/* app logo */}
+                <div className={styles.logo}>
+                    <Image
+                        src='/logo.svg'
+                        width={130}
+                        height={12}
+                        alt='markdown app logo'
+                    />
+                </div>
                 {isLoading ? (
                     <div>loading ...</div>
                 ) : (

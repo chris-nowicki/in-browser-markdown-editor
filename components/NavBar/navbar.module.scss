@@ -1,3 +1,4 @@
+@use '../../styles/breakpoints' as *;
 @import '../../styles/vars';
 
 .container {
@@ -36,6 +37,14 @@
     width: 184px;
     height: 40px;
     border-right: 1px solid #5a6069;
+
+    @include breakpoint(mobile) {
+        display: none;
+    }
+
+    @include breakpoint(tablet) {
+        display: none;
+    }
 }
 
 .document {

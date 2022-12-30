@@ -1,3 +1,4 @@
+@use '../../styles/breakpoints' as *;
 @import '../../styles/vars';
 @import '../../styles/theme';
 
@@ -68,7 +69,7 @@
 }
 
 .previewText {
-    padding: 22px 23px;
+    padding: 22px 23px 0px 23px;
     font-size: 14px;
     line-height: 24px;
     font-family: var(--slab);
@@ -223,4 +224,13 @@
 // make the preview text 50% width of the the full window (centers it)
 .previewOnly_Text {
     width: 50%;
+
+    @include breakpoint(mobile) {
+        width: 100%;
+        padding: 22px 48px 0px 48px;
+    }
+    @include breakpoint(tablet) {
+        width: 100%;
+        padding: 22px 48px 0px 48px;
+    }
 }

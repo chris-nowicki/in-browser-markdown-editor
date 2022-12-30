@@ -1,4 +1,4 @@
-import { createContext, useState, useMemo, use } from 'react'
+import { createContext, useState, useMemo } from 'react'
 
 // Types
 import { AppContextTypes } from '../types'
@@ -11,12 +11,15 @@ export const AppContext = createContext<AppContextTypes>({
     setTheme: () => null,
     isChecked: false,
     setIsChecked: () => null,
+    previewMode: false,
+    setPreviewMode: () => null,
 })
 
 export function AppProvider({ children }: { children: JSX.Element }) {
     const [showMenu, setShowMenu] = useState(false)
     const [theme, setTheme] = useState('')
     const [isChecked, setIsChecked] = useState(true)
+    const [previewMode, setPreviewMode] = useState(false)
 
     useMemo(() => (isChecked ? setTheme('') : setTheme('dark')), [isChecked])
 
@@ -28,8 +31,10 @@ export function AppProvider({ children }: { children: JSX.Element }) {
             setTheme,
             isChecked,
             setIsChecked,
+            previewMode,
+            setPreviewMode,
         }),
-        [showMenu, theme]
+        [showMenu, theme, isChecked, previewMode]
     )
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>

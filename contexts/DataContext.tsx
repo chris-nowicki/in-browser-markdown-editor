@@ -22,11 +22,7 @@ export const DataContext = createContext<DataContextTypes>({
     handleDeleteDocument: () => null,
 })
 
-export function DataProvider({
-    children
-}: {
-    children: JSX.Element
-}) {
+export function DataProvider({ children }: { children: JSX.Element }) {
     const [currentIndex, setCurrentIndex] = useState(0)
     const [data, setData] = useState<any>(defaultData)
     const [content, setContent] = useState(data.files[currentIndex].content)

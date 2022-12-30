@@ -1,6 +1,8 @@
 /* dark theme */
 .dark {
     .markdown {
+        border-right: 1px solid #5a6069;
+
         & textarea {
             background-color: black;
             color: $dark-text-primary;
@@ -8,7 +10,7 @@
     }
 
     .preview {
-      background-color: black;
+        background-color: black;
     }
 
     .previewText {
@@ -35,6 +37,12 @@
 
         & svg path {
             fill: $dark-text-primary;
+        }
+    }
+
+    .previewButton:hover {
+        & path {
+            fill: #e46643;
         }
     }
 }

@@ -20,10 +20,18 @@ function DeleteModal() {
         currentIndex,
     } = useContext(DataContext)
 
-    const { theme } = useContext(AppContext)
+    const { theme, showMenu } = useContext(AppContext)
     return (
-        <div className={`${styles.container} ${theme == 'dark' ? styles.containerDark : styles.containerLight}`}>
-            <div className={`${styles.modal} ${slab.variable} ${styles[theme]}`}>
+        <div
+            className={`${styles.container} ${
+                theme == 'dark' ? styles.containerDark : styles.containerLight
+            }`}
+        >
+            <div
+                className={`${styles.modal} ${slab.variable} ${styles[theme]} ${
+                    showMenu && styles.modalTranslate
+                }`}
+            >
                 <h4>Delete this document?</h4>
                 <p>
                     Are you sure you want to delete the ‘

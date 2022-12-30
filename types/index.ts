@@ -16,5 +16,7 @@ export interface AppContextTypes {
     theme: string
     setTheme: (theme: any) => void
     isChecked: boolean
-    setIsChecked: (isChecked: any) =>void
+    setIsChecked: (isChecked: any) => void
+    previewMode: boolean
+    setPreviewMode: (previewMode: any) => void
 }

@@ -25,8 +25,8 @@ import styles from './index.module.scss'
 
 export default function Home() {
     const { showMenu } = useContext(AppContext)
-    const {deleteDocument} = useContext(DataContext)
-    
+    const { deleteDocument } = useContext(DataContext)
+
     return (
         <>
             <Head>
@@ -46,8 +46,8 @@ export default function Home() {
                 <div className={styles.appContainer}>
                     <NavBar />
                     <MarkDown />
+                    {deleteDocument && <DeleteModal />}
                 </div>
-            {deleteDocument && <DeleteModal />}
             </div>
         </>
     )

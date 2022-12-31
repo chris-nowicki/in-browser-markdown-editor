@@ -1,0 +1,56 @@
+@use '../../styles/breakpoints' as *;
+@import '../../styles/vars';
+@import '../../styles/theme';
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 42px;
+    background-color: $bg-header;
+    color: #7c8187;
+    z-index: 10;
+
+    & span {
+        font-family: var(--roboto-font);
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+        letter-spacing: 2px;
+        margin-left: 16px;
+        text-transform: uppercase;
+    }
+}
+
+.previewButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.previewButton:hover {
+    & path {
+        fill: #e46643;
+    }
+}
+
+.hide {
+    display: none;
+
+    @include breakpoint(mobile) {
+        display: flex;
+    }
+}
+
+.dark {
+    background-color: #1d1f22;
+    color: $dark-text-primary;
+
+    & svg path {
+        fill: $dark-text-primary;
+    }
+}

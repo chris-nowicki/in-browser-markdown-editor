@@ -20,6 +20,7 @@ export const DataContext = createContext<DataContextTypes>({
     deleteDocument: false,
     setDeleteDocument: () => null,
     handleDeleteDocument: () => null,
+    handleSaveDocument: () => null
 })
 
 export function DataProvider({ children }: { children: JSX.Element }) {
@@ -44,6 +45,17 @@ export function DataProvider({ children }: { children: JSX.Element }) {
                 })
                 .catch((err) => console.log(err))
     }, [user])
+
+    const handleSaveDocument = () => {
+        axios
+            .put('http://localhost:3000/api/users/documents/save', {
+                id: data.files[currentIndex]._id,
+                name: data.files[currentIndex].name,
+                content: content,
+            })
+            .then((res) => console.log(res.data.data))
+            .catch((err) => console.log(err))
+    }
 
     const handleDeleteDocument = () => {
         axios
@@ -71,6 +83,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
             deleteDocument,
             setDeleteDocument,
             handleDeleteDocument,
+            handleSaveDocument
         }),
         [data, content, currentIndex, deleteDocument]
     )

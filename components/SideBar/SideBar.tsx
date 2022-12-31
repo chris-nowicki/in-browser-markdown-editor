@@ -84,10 +84,25 @@ function SideBar() {
                 </div>
                 {user && (
                     <button
-                        className={styles.logout}
+                        className={styles.userButton}
                         onClick={() => router.push('/api/auth/logout')}
                     >
                         Logout
+                    </button>
+                )}
+                {!user && (
+                    <button
+                        className={styles.userButton}
+                        onClick={() => router.push('/api/auth/login')}
+                    >
+                        Login
+                        <Image
+                            className={styles.icon}
+                            src='/log-in-outline.svg'
+                            width={24}
+                            height={24}
+                            alt='login'
+                        />
                     </button>
                 )}
             </div>

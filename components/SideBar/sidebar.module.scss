@@ -1,7 +1,6 @@
 @use '../../styles/breakpoints' as *;
 @import '../../styles/vars';
 
-
 .container {
     display: flex;
     flex-direction: column;
@@ -15,8 +14,8 @@
 }
 
 .logo {
-display: none;
-margin-bottom: 27px;
+    display: none;
+    margin-bottom: 27px;
 
     @include breakpoint(mobile) {
         display: inline;
@@ -25,7 +24,6 @@ margin-bottom: 27px;
     @include breakpoint(tablet) {
         display: inline;
     }
-
 }
 
 .myDocuments {
@@ -33,6 +31,7 @@ margin-bottom: 27px;
     flex-direction: column;
     width: 100%;
     margin-top: 3px;
+    overflow: hidden;
 }
 
 .title {
@@ -50,7 +49,7 @@ margin-bottom: 27px;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 40px;
+    min-height: 40px;
     border-radius: 4px;
     background-color: #e46643;
     border: none;
@@ -72,6 +71,20 @@ margin-bottom: 27px;
 .documentList {
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    margin-bottom: 24px;
+}
+
+.documentList::-webkit-scrollbar {
+    width: 2px;
+    height: 4px;
+    background-color: $bg-navbar;
+
+}
+
+/* Add a thumb */
+.documentList::-webkit-scrollbar-thumb {
+    background: white;
 }
 
 .themeSwitcher {
@@ -111,7 +124,7 @@ margin-bottom: 27px;
     }
 }
 
-.logout {
+.userButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,11 +143,15 @@ margin-bottom: 27px;
     cursor: pointer;
 }
 
-.logout:hover {
+.userButton:hover {
     background-color: #f39765;
 }
 
 .appActions {
     display: flex;
     flex-direction: column;
+}
+
+.icon {
+    margin-left: 6px;
 }

@@ -8,6 +8,7 @@ export interface DataContextTypes {
     deleteDocument: boolean
     setDeleteDocument: (deleteDocument: any) => void
     handleDeleteDocument: () => void
+    handleSaveDocument: () => void
 }
 
 export interface AppContextTypes {

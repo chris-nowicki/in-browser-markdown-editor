@@ -3,6 +3,7 @@
 
 .container {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -49,6 +50,7 @@
 
 .document {
     display: flex;
+    flex-direction: row;
     align-items: center;
     margin-left: 24px;
 }
@@ -59,6 +61,7 @@
     margin-left: 16.29px;
 
     & label {
+        display: inline;
         font-family: var(--roboto-font);
         font-style: normal;
         font-weight: 300;
@@ -66,6 +69,10 @@
         line-height: 15px;
         color: #7c8187;
         margin-bottom: 3px;
+
+        @include breakpoint(mobile) {
+            display: none;
+        }
     }
 
     & input {
@@ -85,10 +92,19 @@
         caret-color: #e46643;
         padding-bottom: 6px;
         transition: border-bottom ease-in-out 0.3s;
+
+        @include breakpoint(mobile) {
+            width: 100px;
+            padding-bottom: 0px;
+        }
     }
 
     & input:focus {
         border-bottom: 1px solid white;
+
+        @include breakpoint(mobile) {
+            border-bottom: none;
+        }
     }
 }
 
@@ -126,31 +142,19 @@
     gap: 7.83px;
     margin-right: 24px;
     cursor: pointer;
+
+    @include breakpoint(mobile) {
+        width: 40px;
+        margin-right: 8px;
+    }
+
+    & span {
+        @include breakpoint(mobile) {
+            display: none;
+        }
+    }
 }
 
 .saveDocument:hover {
-    background-color: #f39765;
-}
-
-.login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-    height: 40px;
-    border: none;
-    background-color: #e46643;
-    border-radius: 4px;
-    font-family: var(--roboto-font);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 18px;
-    color: white;
-    margin-right: 24px;
-    cursor: pointer;
-}
-
-.login:hover {
     background-color: #f39765;
 }

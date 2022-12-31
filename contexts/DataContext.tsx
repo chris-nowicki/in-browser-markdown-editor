@@ -38,7 +38,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
                     name: user.name,
                     email: user.email,
                     picture: user.picture,
-                })
+                }, {withCredentials: true})
                 .then((res) => {
                     setData(res.data.data)
                     setContent(res.data.data.files[currentIndex].content)

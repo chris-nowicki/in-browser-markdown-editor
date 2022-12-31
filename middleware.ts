@@ -5,7 +5,7 @@ export default withMiddlewareAuthRequired(function middleware(
     request: NextRequest
 ) {
     console.log(request.nextUrl.pathname)
-    if (request.nextUrl.pathname === '/api/users') {
+    if (request.nextUrl.pathname == '/api/users') {
         return NextResponse.redirect('/api/users')
     }
     return NextResponse.next()

@@ -29,20 +29,5 @@
                 color: white;
             }
         }
-    }
-
-    .header {
-        background-color: #1d1f22;
-        color: $dark-text-primary;
-
-        & svg path {
-            fill: $dark-text-primary;
-        }
-    }
-
-    .previewButton:hover {
-        & path {
-            fill: #e46643;
-        }
-    }
+    }   
 }

@@ -22,7 +22,7 @@ function SideBar() {
 
     const handleNewDocument = () => {
         axios
-            .put('http://localhost:3000/api/users/documents/new', {
+            .put('/api/users/documents/new', {
                 id: user?.sub,
             })
             .then((res) => {

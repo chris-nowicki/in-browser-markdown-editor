@@ -33,7 +33,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
     useMemo(() => {
         user &&
             axios
-                .post('http://localhost:3000/api/users/', {
+                .post('/api/users/', {
                     id: user.sub,
                     name: user.name,
                     email: user.email,
@@ -48,7 +48,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
 
     const handleSaveDocument = () => {
         axios
-            .put('http://localhost:3000/api/users/documents/save', {
+            .put('/api/users/documents/save', {
                 id: data.files[currentIndex]._id,
                 name: data.files[currentIndex].name,
                 content: content,
@@ -59,7 +59,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
 
     const handleDeleteDocument = () => {
         axios
-            .put('http://localhost:3000/api/users/documents/delete', {
+            .put('/api/users/documents/delete', {
                 id: user?.sub,
                 mdxID: data.files[currentIndex]._id,
             })

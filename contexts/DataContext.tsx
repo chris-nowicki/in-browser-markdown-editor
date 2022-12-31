@@ -1,5 +1,5 @@
 import { createContext, useState, useMemo, use } from 'react'
-import { useUser } from '@auth0/nextjs-auth0/client'
+import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
 import axios from 'axios'
 
 // Types
@@ -20,7 +20,7 @@ export const DataContext = createContext<DataContextTypes>({
     deleteDocument: false,
     setDeleteDocument: () => null,
     handleDeleteDocument: () => null,
-    handleSaveDocument: () => null
+    handleSaveDocument: () => null,
 })
 
 export function DataProvider({ children }: { children: JSX.Element }) {
@@ -83,7 +83,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
             deleteDocument,
             setDeleteDocument,
             handleDeleteDocument,
-            handleSaveDocument
+            handleSaveDocument,
         }),
         [data, content, currentIndex, deleteDocument]
     )

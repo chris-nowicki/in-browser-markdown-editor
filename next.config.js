@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: false,
-    trailingSlash: true,
+    images: {
+        domains: ['lh3.googleusercontent.com'],
+    },
     experimental: {
         fontLoaders: [
             { loader: '@next/font/google', options: { subsets: ['latin'] } },

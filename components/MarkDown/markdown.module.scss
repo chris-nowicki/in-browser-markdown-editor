@@ -19,7 +19,6 @@
     border-right: 1px solid #e4e4e4;
     font-family: var(--mono);
     background-color: white;
-    overflow-y: scroll;
 
     @include breakpoint(mobile) {
         width: 100%;
@@ -47,22 +46,25 @@
 .preview {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 50%;
     height: 100%;
-    align-items: center;
-
     @include breakpoint(mobile) {
         display: none;
     }
 }
 
 .previewText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
     padding: 22px 23px 0px 23px;
     font-size: 14px;
     line-height: 24px;
     font-family: var(--slab);
     color: $light-text-primary;
-    overflow-y: scroll;
+    overflow-y: auto;
 
     & h1 {
         font-style: normal;

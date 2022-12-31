@@ -51,11 +51,17 @@ function SideBar() {
                 ) : (
                     user && (
                         <div className={styles.user}>
-                            <img
+                            <Image
+                                src={`${user.picture?.split('=')[0]}`}
+                                width={150}
+                                height={150}
+                                alt='profile picture'
+                            />
+                            {/* <img
                                 src={`${user.picture?.split('=')[0]}`}
                                 alt={`${user.name}`}
                                 width='150'
-                            />
+                            /> */}
                             <h2>{user.name}</h2>
                             <p>{user.email}</p>
                         </div>

@@ -15,14 +15,19 @@
 
 .logo {
     display: none;
+    width: 100%;
+
+    flex-direction: row;
+    justify-content: center;
     margin-bottom: 27px;
 
+
     @include breakpoint(mobile) {
-        display: inline;
+        display: flex;
     }
 
     @include breakpoint(tablet) {
-        display: inline;
+        display: flex;
     }
 }
 
@@ -42,6 +47,8 @@
     line-height: 16px;
     letter-spacing: 2px;
     color: #7c8187;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .newDocument {
@@ -61,7 +68,6 @@
     line-height: 18px;
     color: #ffffff;
     cursor: pointer;
-    margin-bottom: 24px;
 }
 
 .newDocument:hover {
@@ -73,6 +79,7 @@
     flex-direction: column;
     overflow-y: auto;
     margin-bottom: 24px;
+        margin-top: 24px;
 }
 
 .documentList::-webkit-scrollbar {

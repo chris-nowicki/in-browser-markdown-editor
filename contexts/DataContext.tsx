@@ -21,6 +21,7 @@ export const DataContext = createContext<DataContextTypes>({
     setDeleteDocument: () => null,
     handleDeleteDocument: () => null,
     handleSaveDocument: () => null,
+    handleDocumentNameChange: () => null
 })
 
 export function DataProvider({ children }: { children: JSX.Element }) {
@@ -33,18 +34,32 @@ export function DataProvider({ children }: { children: JSX.Element }) {
     useMemo(() => {
         user &&
             axios
-                .post('/api/users/', {
-                    id: user.sub,
-                    name: user.name,
-                    email: user.email,
-                    picture: user.picture,
-                }, {withCredentials: true})
+                .post(
+                    '/api/users/',
+                    {
+                        id: user.sub,
+                        name: user.name,
+                        email: user.email,
+                        picture: user.picture,
+                    },
+                    { withCredentials: true }
+                )
                 .then((res) => {
                     setData(res.data.data)
                     setContent(res.data.data.files[currentIndex].content)
                 })
                 .catch((err) => console.log(err))
     }, [user])
+
+    const handleDocumentNameChange = (e: any) => {
+        let updatedData = { ...data }
+        let newFileName = updatedData.files
+        newFileName = newFileName.find(
+            (fileName: any) => fileName._id === data.files[currentIndex]._id
+        )
+        newFileName.name = e.target.value
+        setData(updatedData)
+    }
 
     const handleSaveDocument = () => {
         axios
@@ -84,6 +99,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
             setDeleteDocument,
             handleDeleteDocument,
             handleSaveDocument,
+            handleDocumentNameChange
         }),
         [data, content, currentIndex, deleteDocument]
     )

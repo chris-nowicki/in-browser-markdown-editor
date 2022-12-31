@@ -63,12 +63,14 @@ function SideBar() {
                     )
                 )}
                 <span className={styles.title}>MY DOCUMENTS</span>
-                <button
-                    className={styles.newDocument}
-                    onClick={() => handleNewDocument()}
-                >
-                    + New Document
-                </button>
+                {user && (
+                    <button
+                        className={styles.newDocument}
+                        onClick={() => handleNewDocument()}
+                    >
+                        + New Document
+                    </button>
+                )}
                 <div className={styles.documentList}>
                     {data.files.map((data: string[], index: number) => (
                         <Document

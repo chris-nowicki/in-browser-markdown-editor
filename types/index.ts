@@ -9,6 +9,7 @@ export interface DataContextTypes {
     setDeleteDocument: (deleteDocument: any) => void
     handleDeleteDocument: () => void
     handleSaveDocument: () => void
+    handleDocumentNameChange: (e: any) => void
 }
 
 export interface AppContextTypes {

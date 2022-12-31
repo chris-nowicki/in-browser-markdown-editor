@@ -158,3 +158,30 @@
 .saveDocument:hover {
     background-color: #f39765;
 }
+
+.userButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 152px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #e46643;
+    border: none;
+    font-family: var(--roboto-font);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: #ffffff;
+    cursor: pointer;
+    margin-right: 16px;
+}
+
+.userButton:hover {
+    background-color: #f39765;
+}
+
+.icon {
+    margin-left: 6px;
+}

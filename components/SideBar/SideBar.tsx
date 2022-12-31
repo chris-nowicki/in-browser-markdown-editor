@@ -57,11 +57,6 @@ function SideBar() {
                                 height={150}
                                 alt='profile picture'
                             />
-                            {/* <img
-                                src={`${user.picture?.split('=')[0]}`}
-                                alt={`${user.name}`}
-                                width='150'
-                            /> */}
                             <h2>{user.name}</h2>
                             <p>{user.email}</p>
                         </div>

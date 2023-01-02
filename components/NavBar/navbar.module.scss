@@ -189,7 +189,7 @@
 .icon {
     margin-left: 6px;
 
-      @include breakpoint(mobile) {
+    @include breakpoint(mobile) {
         margin-left: 3px;
     }
 }

@@ -159,7 +159,7 @@
     background-color: #f39765;
 }
 
-.userButton {
+.login {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -176,12 +176,20 @@
     color: #ffffff;
     cursor: pointer;
     margin-right: 16px;
+
+    @include breakpoint(mobile) {
+        width: 90px;
+    }
 }
 
-.userButton:hover {
+.login:hover {
     background-color: #f39765;
 }
 
 .icon {
     margin-left: 6px;
+
+      @include breakpoint(mobile) {
+        margin-left: 3px;
+    }
 }

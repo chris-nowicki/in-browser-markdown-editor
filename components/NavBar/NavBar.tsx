@@ -89,7 +89,7 @@ function NavBar() {
                 {/* login button */}
                 {!user && (
                     <button
-                        className={styles.userButton}
+                        className={styles.login}
                         onClick={() => router.push('/api/auth/login')}
                     >
                         Login

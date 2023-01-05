@@ -40,8 +40,8 @@ Users should be able to:
 
 ### Links
 
--   Solution URL: [Add solution URL here](https://your-solution-url.com)
--   Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+-   Solution URL: [https://www.frontendmentor.io/solutions/inbrowser-markdown-editor-Gnsq5zFSff](https://www.frontendmentor.io/solutions/inbrowser-markdown-editor-Gnsq5zFSff)
+-   Live Site URL: [https://markdown.chrisnowicki.io](https://markdown.chrisnowicki.io)
 
 ## My process
 

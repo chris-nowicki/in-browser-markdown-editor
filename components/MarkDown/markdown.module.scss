@@ -196,10 +196,12 @@
 
     & em {
         font-style: italic;
+        margin-left: 4px;
     }
 
     & strong {
         font-weight: 700;
+        margin-left: 4px;
     }
 
     & table {
@@ -225,6 +227,7 @@
     background-color: #f5f5f5;
     padding: 24px;
     border-radius: 4px;
+    margin-bottom: 24px;
 }
 
 .dark pre {

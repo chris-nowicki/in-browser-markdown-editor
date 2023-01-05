@@ -78,7 +78,7 @@ Once I got the routes setup it was a bit challenging, at first, to configure aut
 
 ### Continued development
 
-I'd like to continue to play around with NEXT.js. It's a great React Library to play with that doesn't require you to install a separate server.
+I'd like to continue to play around with NEXT.js. It's a rad React Library that doesn't require you to install a separate server.
 
 ### Useful resources
 

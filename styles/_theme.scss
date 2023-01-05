@@ -29,5 +29,13 @@
                 color: white;
             }
         }
+
+        & th {
+            color: white;
+        }
+
+        & th {
+            background-color: $dark-bg-color;
+        }
     }   
 }

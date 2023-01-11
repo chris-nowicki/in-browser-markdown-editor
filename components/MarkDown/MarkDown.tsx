@@ -25,7 +25,7 @@ import styles from './markdown.module.scss'
 
 function MarkDown() {
     const { content, setContent } = useContext(DataContext)
-    const { theme, previewMode, setPreviewMode } = useContext(AppContext)
+    const { theme, previewMode } = useContext(AppContext)
 
     return (
         <main className={`${styles.container} ${styles[theme]}`}>

@@ -15,7 +15,7 @@ export const AppContext = createContext<AppContextTypes>({
     setPreviewMode: () => null,
 })
 
-export function AppProvider({ children }: { children: JSX.Element }) {
+export function AppProvider({ children }: { children: React.ReactNode }) {
     const [showMenu, setShowMenu] = useState(false)
     const [theme, setTheme] = useState('')
     const [isChecked, setIsChecked] = useState(true)

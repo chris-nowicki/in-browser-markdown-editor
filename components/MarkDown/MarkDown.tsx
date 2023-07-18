@@ -1,3 +1,4 @@
+'use client'
 import { useContext } from 'react'
 
 // Markdown Libraries
@@ -12,12 +13,14 @@ import { AppContext } from '../../contexts/AppContext'
 import Header from './Header'
 
 // fonts
-import { Roboto_Slab, Roboto_Mono } from '@next/font/google'
+import { Roboto_Slab, Roboto_Mono } from 'next/font/google'
 const slab = Roboto_Slab({
     variable: '--slab',
+    subsets: ['latin-ext'],
 })
 const mono = Roboto_Mono({
     variable: '--mono',
+    subsets: ['latin-ext'],
 })
 
 // styles

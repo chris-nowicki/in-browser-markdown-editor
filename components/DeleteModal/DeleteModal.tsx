@@ -1,3 +1,4 @@
+'use client'
 import { useContext } from 'react'
 import { DataContext } from '../../contexts/DataContext'
 import { AppContext } from '../../contexts/AppContext'
@@ -6,12 +7,13 @@ import { AppContext } from '../../contexts/AppContext'
 import styles from './DeleteModal.module.scss'
 
 // Font
-import { Roboto_Slab } from '@next/font/google'
+import { Roboto_Slab } from 'next/font/google'
 const slab = Roboto_Slab({
     variable: '--slab-font',
+    subsets: ['latin-ext'],
 })
 
-function DeleteModal() {
+export default function DeleteModal() {
     const {
         deleteDocument,
         setDeleteDocument,
@@ -54,5 +56,3 @@ function DeleteModal() {
         </div>
     )
 }
-
-export default DeleteModal

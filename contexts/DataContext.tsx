@@ -1,5 +1,5 @@
-import { createContext, useState, useMemo, use } from 'react'
-import { useUser, withPageAuthRequired } from '@auth0/nextjs-auth0/client'
+import { createContext, useState, useMemo } from 'react'
+import { useUser } from '@auth0/nextjs-auth0/client'
 import axios from 'axios'
 
 // Types

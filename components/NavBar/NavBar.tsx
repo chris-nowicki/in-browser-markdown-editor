@@ -1,7 +1,8 @@
+'use client'
 import { useContext } from 'react'
-import Image from 'next/image'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useUser } from '@auth0/nextjs-auth0/client'
+import Image from 'next/image'
 
 // Context
 import { AppContext } from '../../contexts/AppContext'

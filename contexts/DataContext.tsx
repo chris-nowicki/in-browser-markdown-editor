@@ -21,7 +21,7 @@ export const DataContext = createContext<DataContextTypes>({
     setDeleteDocument: () => null,
     handleDeleteDocument: () => null,
     handleSaveDocument: () => null,
-    handleDocumentNameChange: () => null
+    handleDocumentNameChange: () => null,
 })
 
 export function DataProvider({ children }: { children: JSX.Element }) {
@@ -68,7 +68,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
                 name: data.files[currentIndex].name,
                 content: content,
             })
-            .then((res) => console.log(res.data.data))
+            .then((res) => setData(res.data.data))
             .catch((err) => console.log(err))
     }
 
@@ -99,7 +99,7 @@ export function DataProvider({ children }: { children: JSX.Element }) {
             setDeleteDocument,
             handleDeleteDocument,
             handleSaveDocument,
-            handleDocumentNameChange
+            handleDocumentNameChange,
         }),
         [data, content, currentIndex, deleteDocument]
     )

@@ -7,13 +7,13 @@ export default async function handler(req: any, res: any) {
     await dbConnect()
 
     try {
-        const document = await User.updateOne(
+        const document = await User.findOneAndUpdate(
             { 'files._id': id },
             {
                 $set: { 'files.$.name': name, 'files.$.content': content },
             },
             {
-                new: true,
+                returnDocument: 'after',
             }
         )
         res.status(200).json({ success: true, data: document })
